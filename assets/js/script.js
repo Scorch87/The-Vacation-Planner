@@ -19,3 +19,14 @@ var map = new H.Map(
       zoom: 7,
       center: { lat: 39.0997, lng: -94.5786 }
     });
+
+    // MapEvents object from the HERE library
+var mapEvents = new H.mapevents.MapEvents(map);
+
+map.addEventListener('tap', function(evt) {
+    // Log 'tap' and 'mouse' events:
+    console.log(evt.type, evt.currentPointer.type); 
+});
+
+// Instantiate the default behavior, providing the mapEvents object:
+var behavior = new H.mapevents.Behavior(mapEvents);
