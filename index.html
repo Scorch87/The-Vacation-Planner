@@ -1,126 +1,125 @@
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Vacation Planner</title>
-		<link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
-		<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-        <!-- <link rel="stylesheet" href="assets/css/debug.css"> -->
-		
-		<!-- HERE Libraries -->
-		 <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
-		 <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
-		 <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
-		
-		
-		<style>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vacation Planner</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+    ></script>
+    <!-- <link rel="stylesheet" href="assets/css/debug.css"> -->
 
-.center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+    <!-- Google Libraries -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 
-		</style>
-	</head>
-	<body>
+    <style>
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <script type="module" src="./assets/js/script.js"></script>
+  </head>
+  <body>
+    <!-- .hero -->
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <div class="container">
+          <figure class="image center">
+            <img
+              src="./assets/css/SeekPng.com_spartan-shield-png_8224147.png"
+              style="max-width: 142px"
+            />
+          </figure>
+        </div>
+        <div class="title-strong">
+          <figure class="columns center has-text-black is-spaced is-size-1">
+            <h1>Victory Weather</h1>
+          </figure>
+        </div>
+      </div>
+    </section>
+    <!-- /.hero -->
 
-		<!-- .hero -->
-		<section class="hero is-primary">
-			<div class="hero-body">
-				<div class="container">
-					<figure class="image center">
-						<img src="./assets/css/SeekPng.com_spartan-shield-png_8224147.png" style="max-width: 142px;">
-					</figure>
-				</div>
-				<div class="title-strong">
-					<figure class="columns center has-text-black is-spaced is-size-1">
-					<h1> 
-						Victory Weather
-					</h1>
-				</figure>
-				</div>
-			</div>
-		</section>
-		<!-- /.hero -->
-		
-		<!-- .Address Bar, Map Container, Current Day Forecast -->
-		<section class="section has-background-light">
-			<div class="container">
-				<div class="columns">
-					<div class="field has-addons">
-						<figure class="media-left">
-						<label class="label">Address</label>
-						<div class="field has-addons">
-							<div class="control">
-							  <input class="input" type="text" placeholder="e.x. Kansas City...">
-							</div>
-							<div class="control">
-							  <a class="button is-primary">
-								Search
-							  </a>
-							</div>
-						  </div>
-					</figure>
-					</div>
-					
-					<!-- Calender  -->
-					
-					<!-- Calender -->
-					
-					<!-- Map Container -->
-					<div class="container" style="width: 640px; height: 480px" id="mapContainer"></div>
-					<!-- Map Container -->
+    <!-- .Address Bar, Map Container, Current Day Forecast -->
+    <section class="section has-background-light">
+      <div class="container">
+        <div class="columns">
+          <div class="field has-addons">
+            <figure class="media-left">
+              <label class="label">Address</label>
+              <div class="field has-addons">
+                <div class="control">
+                  <input
+                    class="input"
+                    type="text"
+                    placeholder="e.x. Kansas City..."
+                  />
+                </div>
+                <div class="control">
+                  <a class="button is-primary"> Search </a>
+                </div>
+              </div>
+            </figure>
+          </div>
 
-					<!-- Current Day Container -->
-					<div class="column">
-						<article class="media notification is-primary">
-							<div class="media-content">
-								<div class="content">
-									<h1 class="title is-size-4">Test</h1>
-									<p class="is-size-5">
-										Check out this totally cool and awesome info window!
-									</p>
-								</div>
-							</div>
-						</article>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Current Day Container -->
-		<!-- /.section -->
+          <!-- Calender  -->
 
-		<!-- 6 Days of Weather -->
-		<section class="section has-background-light">
-			<div class="container">
-				<div class="columns">
-		<div class="column">
-			Monday
-		  </div>
-		  <div class="column">
-			Tuesday
-		  </div>
-		  <div class="column">
-			Wednesday
-		  </div>
-		  <div class="column">
-			Thursday
-		  </div>
-		  <div class="column">
-			Friday
-		  </div>
-		  <div class="column">
-			Saturday
-		  </div>
-		  <div class="column">
-			Sunday
-		  </div>
-		</div>
-		</div>
-		</section>
-	</body>
+          <!-- Calender -->
+
+          <!-- Map Container -->
+          <div
+            class="container"
+            style="width: 640px; height: 480px"
+            id="map"
+          ></div>
+          <!-- Map Container -->
+
+          <!-- Current Day Container -->
+          <div class="column">
+            <article class="media notification is-primary">
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-size-4">Test</h1>
+                  <p class="is-size-5">
+                    Check out this totally cool and awesome info window!
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Current Day Container -->
+    <!-- /.section -->
+
+    <!-- 6 Days of Weather -->
+    <section class="section has-background-light">
+      <div class="container">
+        <div class="columns">
+          <div class="column">Monday</div>
+          <div class="column">Tuesday</div>
+          <div class="column">Wednesday</div>
+          <div class="column">Thursday</div>
+          <div class="column">Friday</div>
+          <div class="column">Saturday</div>
+          <div class="column">Sunday</div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
 
-<script type = "module" src="./assets/js/script.js"></script>
+<script type="module" src="./assets/js/script.js"></script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAn3C2dDCfenvdSQk11RMXtHwSfJEJZw4&callback=initMap&v=weekly"
+  defer
+></script>
